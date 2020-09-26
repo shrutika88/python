@@ -5,8 +5,10 @@ type `python CowsAndBulls.py` in the command prompt.
 
 Game Description:
 
-Computer randomly pics a 4 digit no and user tries to guess the no using some hints in the form of no of cows and bulls
-The first digit of a tuple indicates no of bulls while second indicates cows
+Computer randomly pics a 4 digit no and user tries to guess the no using some hints in the form of no of cows and bulls.
+The first digit of a tuple indicates no of bulls while second indicates cows.
+Bull indicates the no of digits in both the numbers where the exact place(unit's place, ten's place, wtc) of the no matches.
+Cow indicates the no of digits in existing in both numbers where their places differ.
 
 Rule:
 
