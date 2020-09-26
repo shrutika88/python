@@ -1,0 +1,68 @@
+import random
+
+def random_no_generator():
+	num = random.randint(1000,9999)
+	return num
+	
+def pic_a_number():
+	isValid= False
+	num = 1234
+	while isValid != True:
+		num = random_no_generator()
+		my_num_str = str(num)
+		mySet=set()
+		for every in my_num_str:
+			mySet.add(every)
+		if len(mySet) == 4:
+			isValid = True
+	return num
+		
+def get_user_input():
+	isValid= False
+	mynum = '1234'
+	while isValid != True:
+		mynum = input("Enter a 4 digit no")
+		mySet=set()
+		for every in mynum:
+			mySet.add(every)
+		if len(mySet) == 4 and mynum[0] != '0':
+			isValid = True
+		else:
+			print("not a valid input")
+	return mynum	
+	
+def return_cows_and_bulls(computer_num, user_num):
+	cows = 0
+	bulls = 0
+	for every in range(0,4):
+		if computer_num[every] == user_num[every]:
+			bulls+=1
+	for every in range(0,4):
+		for everynew in range(0,4):
+			if computer_num[every] == user_num[everynew] and every != everynew:
+				cows+=1
+	return(bulls,cows)
+	
+def start_the_game():
+	count = 1
+	computer_num = str(pic_a_number())
+	user_num = str(get_user_input())
+	print(return_cows_and_bulls(str(computer_num),user_num))
+	#print(computer_num)
+	print(user_num)
+	#make_iterations(computer_num,user_num)
+	while computer_num != user_num:
+		new_user = str(get_user_input())
+		print(return_cows_and_bulls(str(computer_num),new_user))
+		count+=1
+		print(count)
+		if return_cows_and_bulls(str(computer_num),new_user) == (4,0):
+			print("Hurrey, you won the game in " + str(count) + " counts")
+			exit(0)
+		
+	exit(0)
+	
+	
+start_the_game()
+		
+		
